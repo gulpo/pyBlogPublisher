@@ -1,0 +1,1108 @@
+{
+    "object": "list",
+    "results": [
+        {
+            "object": "page",
+            "id": "4ea26f51-acbe-4dbe-be88-c21f7868600b",
+            "created_time": "2023-01-15T13:20:00.000Z",
+            "last_edited_time": "2023-01-15T13:20:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D", "type": "rich_text", "rich_text": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Artur Rapczyński",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Artur Rapczyński",
+                            "href": null
+                        }
+                    ]
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T13:20:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://www.youtube.com/watch?v=LWz57CpcSnE"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "fba62cd9-22f7-4b90-b6df-99503a836b3a",
+                        "name": "Youtube",
+                        "color": "red"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "4e18783a-bb30-49e7-bf9a-6cee06598239",
+                        "name": "Soft",
+                        "color": "red"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "31edc564-097e-4217-bd96-b1c8c3667597",
+                            "name": "Soft skill",
+                            "color": "yellow"
+                        },
+                        {
+                            "id": "c7ac5167-9387-49d5-89bb-fda2cdd5abe9",
+                            "name": "Tool",
+                            "color": "orange"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "w`iy",
+                        "name": "Film/Talk",
+                        "color": "red"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T13:20:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "My summary",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "My summary",
+                            "href": null
+                        }
+                    ]
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "6 Tips for Productive 1:1 Meetings with Your Manager",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "6 Tips for Productive 1:1 Meetings with Your Manager",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/6-Tips-for-Productive-1-1-Meetings-with-Your-Manager-4ea26f51acbe4dbebe88c21f7868600b"
+        },
+        {
+            "object": "page",
+            "id": "af395d29-d831-462f-832b-df716b2c7c48",
+            "created_time": "2023-01-15T13:16:00.000Z",
+            "last_edited_time": "2023-01-15T13:17:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T13:16:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://horstmann.com/unblog/2022-12-01/index.html"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "288b9591-7185-4442-8123-63878184934c",
+                        "name": "Cay Horstmann's Unblog",
+                        "color": "default"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "52a6527d-c831-4401-9d4d-fc9cbdc48c79",
+                        "name": "Dev",
+                        "color": "green"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "?|{T",
+                            "name": "Java",
+                            "color": "green"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T13:17:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "JavaDoc Code Snippets and Friends",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "JavaDoc Code Snippets and Friends",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/JavaDoc-Code-Snippets-and-Friends-af395d29d831462f832bdf716b2c7c48"
+        },
+        {
+            "object": "page",
+            "id": "f0e57f11-e48a-4cfc-a2ea-fd5a079be423",
+            "created_time": "2023-01-15T13:01:00.000Z",
+            "last_edited_time": "2023-01-15T13:15:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T13:01:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://candost.blog/1-idea-9-questions-everyone-should-use-joint-meeting-documents-for-1-1s/"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "GVdP",
+                        "name": "Candost's Space",
+                        "color": "green"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "4e18783a-bb30-49e7-bf9a-6cee06598239",
+                        "name": "Soft",
+                        "color": "red"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "c7ac5167-9387-49d5-89bb-fda2cdd5abe9",
+                            "name": "Tool",
+                            "color": "orange"
+                        },
+                        {
+                            "id": "31edc564-097e-4217-bd96-b1c8c3667597",
+                            "name": "Soft skill",
+                            "color": "yellow"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T13:15:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "1 Idea 9 Questions: Everyone Should Use Joint Meeting Documents for 1:1s",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "1 Idea 9 Questions: Everyone Should Use Joint Meeting Documents for 1:1s",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/1-Idea-9-Questions-Everyone-Should-Use-Joint-Meeting-Documents-for-1-1s-f0e57f11e48a4cfca2eafd5a079be423"
+        },
+        {
+            "object": "page",
+            "id": "1bbbce94-0c5c-433c-be0d-88434974682c",
+            "created_time": "2023-01-15T12:59:00.000Z",
+            "last_edited_time": "2023-01-15T12:59:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T12:59:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://www.youtube.com/watch?v=ifYuvgXZ108"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "fba62cd9-22f7-4b90-b6df-99503a836b3a",
+                        "name": "Youtube",
+                        "color": "red"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "SxOt",
+                        "name": "Offtopic",
+                        "color": "brown"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "c7ac5167-9387-49d5-89bb-fda2cdd5abe9",
+                            "name": "Tool",
+                            "color": "orange"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "w`iy",
+                        "name": "Film/Talk",
+                        "color": "red"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:59:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "\"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "\"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Programmable-Ink-by-Szymon-Kaliski-Strange-Loop-2022-1bbbce940c5c433cbe0d88434974682c"
+        },
+        {
+            "object": "page",
+            "id": "3e641e36-7438-45fa-8e92-d21dd2492c72",
+            "created_time": "2023-01-15T12:56:00.000Z",
+            "last_edited_time": "2023-01-15T12:59:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T12:56:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://candost.blog/understanding-how-database-transactions-work/"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "GVdP",
+                        "name": "Candost's Space",
+                        "color": "green"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "~UdQ",
+                        "name": "DB",
+                        "color": "orange"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "9dd38246-0759-42b0-8e44-326c9733e0b4",
+                            "name": "Tutorial",
+                            "color": "pink"
+                        },
+                        {
+                            "id": "e5c75da3-350e-4f04-8112-4872703f1e96",
+                            "name": "Database",
+                            "color": "green"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:59:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Understanding How Database Transactions Work",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Understanding How Database Transactions Work",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Understanding-How-Database-Transactions-Work-3e641e36743845fa8e92d21dd2492c72"
+        },
+        {
+            "object": "page",
+            "id": "653b4361-5d2a-4bf4-a2ac-718eb8dc2488",
+            "created_time": "2023-01-15T12:54:00.000Z",
+            "last_edited_time": "2023-01-15T12:58:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-15T12:54:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://dzone.com/articles/spring-boot-docker-best-practices"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "GKEK",
+                        "name": "Dzone",
+                        "color": "pink"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "52a6527d-c831-4401-9d4d-fc9cbdc48c79",
+                        "name": "Dev",
+                        "color": "green"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "?|{T",
+                            "name": "Java",
+                            "color": "green"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:58:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Spring Boot Docker Best Practices",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Spring Boot Docker Best Practices",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Spring-Boot-Docker-Best-Practices-653b43615d2a4bf4a2ac718eb8dc2488"
+        },
+        {
+            "object": "page",
+            "id": "2675a431-f02e-48fa-9617-92be1c1ce319",
+            "created_time": "2023-01-13T22:12:00.000Z",
+            "last_edited_time": "2023-01-15T12:58:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-13T22:12:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://dzone.com/articles/arrays-and-hashing"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "GKEK",
+                        "name": "Dzone",
+                        "color": "pink"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "52a6527d-c831-4401-9d4d-fc9cbdc48c79",
+                        "name": "Dev",
+                        "color": "green"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "9dd38246-0759-42b0-8e44-326c9733e0b4",
+                            "name": "Tutorial",
+                            "color": "pink"
+                        },
+                        {
+                            "id": "?|{T",
+                            "name": "Java",
+                            "color": "green"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:58:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Arrays and Hashing",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Arrays and Hashing",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Arrays-and-Hashing-2675a431f02e48fa961792be1c1ce319"
+        },
+        {
+            "object": "page",
+            "id": "f2382347-0cd4-422f-9f3c-353a665f0270",
+            "created_time": "2023-01-13T22:12:00.000Z",
+            "last_edited_time": "2023-01-15T12:58:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-13T22:12:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://www.infoq.com/news/2022/12/google-osv-scanner/"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "u[V_",
+                        "name": "InfoQ",
+                        "color": "orange"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "yHco",
+                        "name": "Tools",
+                        "color": "blue"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "9ebfac31-0cb4-43eb-9d7a-fa751022cdb6",
+                            "name": "Security",
+                            "color": "orange"
+                        },
+                        {
+                            "id": "c7ac5167-9387-49d5-89bb-fda2cdd5abe9",
+                            "name": "Tool",
+                            "color": "orange"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:58:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Google Releases Open-Source Vulnerability Scanning Tool",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Google Releases Open-Source Vulnerability Scanning Tool",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Google-Releases-Open-Source-Vulnerability-Scanning-Tool-f23823470cd4422f9f3c353a665f0270"
+        },
+        {
+            "object": "page",
+            "id": "8605fbe0-344e-4bdd-8644-832ee2bf2440",
+            "created_time": "2023-01-13T22:12:00.000Z",
+            "last_edited_time": "2023-01-15T12:58:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "0f198a89-6548-49a2-9d5c-8cb8a046afd7"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "6e6fcb7f-1e38-4165-b414-0a8b5419b5ec"
+            },
+            "archived": false,
+            "properties": {
+                "Credit": {
+                    "id": "%3B%3F%40%3D",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Created time": {
+                    "id": "C%3CQS",
+                    "type": "created_time",
+                    "created_time": "2023-01-13T22:12:00.000Z"
+                },
+                "Link": {
+                    "id": "CkbV",
+                    "type": "url",
+                    "url": "https://www.infoq.com/news/2022/12/amazon-s3-security-changes/"
+                },
+                "Source": {
+                    "id": "JXzw",
+                    "type": "select",
+                    "select": {
+                        "id": "u[V_",
+                        "name": "InfoQ",
+                        "color": "orange"
+                    }
+                },
+                "Category": {
+                    "id": "Q_xq",
+                    "type": "select",
+                    "select": {
+                        "id": "52a6527d-c831-4401-9d4d-fc9cbdc48c79",
+                        "name": "Dev",
+                        "color": "green"
+                    }
+                },
+                "Technical Category": {
+                    "id": "W%3E%3AU",
+                    "type": "multi_select",
+                    "multi_select": [
+                        {
+                            "id": "aSfL",
+                            "name": "Cloud",
+                            "color": "purple"
+                        },
+                        {
+                            "id": "mz<e",
+                            "name": "AWS",
+                            "color": "pink"
+                        }
+                    ]
+                },
+                "Type": {
+                    "id": "gMat",
+                    "type": "select",
+                    "select": {
+                        "id": "Hufz",
+                        "name": "Article",
+                        "color": "gray"
+                    }
+                },
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": null
+                },
+                "Last edited time": {
+                    "id": "rFcb",
+                    "type": "last_edited_time",
+                    "last_edited_time": "2023-01-15T12:58:00.000Z"
+                },
+                "Summary": {
+                    "id": "yUtS",
+                    "type": "rich_text",
+                    "rich_text": []
+                },
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "AWS Announces Upcoming Security Changes in April 2023 for Amazon S3",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": true,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "AWS Announces Upcoming Security Changes in April 2023 for Amazon S3",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/AWS-Announces-Upcoming-Security-Changes-in-April-2023-for-Amazon-S3-8605fbe0344e4bdd8644832ee2bf2440"
+        }
+    ],
+    "next_cursor": null,
+    "has_more": false,
+    "type": "page",
+    "page": {}
+}
