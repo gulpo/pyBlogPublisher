@@ -1,0 +1,10 @@
+confluence:
+  api:
+    url: https://confluence.hycom.pl/rest/api
+    content: /content
+  auth.pat: <personal_access_token>
+notion:
+  auth:
+    iat: <integration_access_token> # integration access token
+  database:
+    id: <database_id>

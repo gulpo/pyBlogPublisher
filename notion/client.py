@@ -1,5 +1,6 @@
 import requests
 import json
+import logging
 
 NOTION_PROPERTY_TYPE_RICH_TEXT = 'rich_text'
 NOTION_PROPERTY_TYPE_SELECT = 'select'
@@ -10,7 +11,7 @@ NOTION_PROPERTY_TYPE_LAST_EDITED_TIME = 'last_edited_time'
 NOTION_PROPERTY_TYPE_URL = 'url'
 NOTION_PROPERTY_TYPE_TITLE = 'title'
 
-_query_unpublished_pages = {
+_query_unpublished_pages = ('query_unpublished_pages', {
     "filter": {
         "property": "Published time",
         "date": {
@@ -24,9 +25,11 @@ _query_unpublished_pages = {
         }
     ],
     #"page_size": 1,
-}
+})
 
 class Article:
+
+    _logger = logging.getLogger('notion.Article')
 
     def __init__(self, id, object, name = None, link = None, summary = None, credit = None,
             category = None, type = None, source = None, technical_category = None,
@@ -130,18 +133,29 @@ class Article:
     def _parse_select(json):
         if (json['type'] != NOTION_PROPERTY_TYPE_SELECT):
             raise ValueError('Expected ' + NOTION_PROPERTY_TYPE_SELECT + ' object but received ' + json['type'])
-        return json['select']['name']
+        if (json['select']):
+            return json['select']['name']
+        return None
     
     @staticmethod
     def _parse_multi_select(json):
         if (json['type'] != NOTION_PROPERTY_TYPE_MULTI_SELECT):
             raise ValueError('Expected ' + NOTION_PROPERTY_TYPE_MULTI_SELECT + ' object but received ' + json['type'])
         result = []
-        for select in json['multi_select']:
-            result.append(select['name'])
+        if (json['multi_select']):
+            for select in json['multi_select']:
+                result.append(select['name'])
         return result
+
+    def __str__(self):
+        return "Article [id:{}, object:{}, name:{}, type:{}, source:{}, category:{}, tech_category:{},credit:{}, created_time:{}, last_edited_time:{}, published_time:{}]".format(
+            self.id, self.object, self.name, self.type, self.source, self.category, self.tech_category, self.credit,
+            self.created_time, self.last_edited_time, self.published_time
+        )
     
 class NotionDbClient:
+
+    _logger = logging.getLogger('notion.NotionDbClient')
 
     _secret = None
     _database_id = None
@@ -158,7 +172,11 @@ class NotionDbClient:
         self._url = "https://api.notion.com/v1/databases/" + self._database_id + "/query"
         self._headers["Authorization"] =  "Bearer " + self._secret
 
-    def _request_api(self, query):
+    """
+    query: tuple - [0 - name, 1 - query json dict]
+    do_save: boolean, default False
+    """
+    def _request_api(self, query: tuple, do_save = False):
         # Returned object:
         # {
         #   "object": list
@@ -167,19 +185,29 @@ class NotionDbClient:
         #   "type": "page"
         #   "results": [<page obj>,...]
         # }
-        response = requests.post(self._url, json = query, headers = self._headers)
+        self._logger.debug('Querying notion database [url:{}, query:{}]'.format(self._url, query[0]))
+        response = requests.post(self._url, json = query[1], headers = self._headers)
         if (response.status_code == 200):
-            return json.loads(response.text)
+            json_response = response.text
+            if (do_save):
+                f_name = 'notion_saved_data.json'
+                self._logger.debug("Saving query response to: {}".format(f_name))
+                with open(f_name, 'w') as f:
+                    f.write(json_response)
+            return json.loads(json_response)
         else:
             raise requests.HTTPError(response.text)
 
     def get_unpublished_articles(self):
-        json_data = self._request_api(_query_unpublished_pages)
-        #f = open('notion_example_data.json')
-        #json_data = json.load(f)
+        self._logger.debug('Loading articles from Notion')
+        #json_data = self._request_api(_query_unpublished_pages, False)
+        with open('notion_saved_data.json') as f:
+            json_data = json.load(f)
+        
         article_list = []
         for page in json_data['results']:
             article_list.append(Article.from_json(page))
+        self._logger.debug('Articles loaded')
         return article_list
 
 
