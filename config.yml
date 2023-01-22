@@ -10,3 +10,5 @@ notion:
     iat: <integration_access_token> # integration access token
   database:
     id: <database_id>
+issue:
+  file: issue.txt

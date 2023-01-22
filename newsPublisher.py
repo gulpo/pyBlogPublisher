@@ -15,10 +15,13 @@
 # Confluence
 import yaml
 import logging, logging.config
+import datetime
 import os
+import argparse
 
 from lib.notion import NotionDbClient
 from lib.confluence import ConfluenceClient
+from lib.service import ArticleToMarkdownParser
 
 with open('logging.yml', 'r') as f:
     config = yaml.safe_load(f.read())
@@ -35,13 +38,42 @@ def load_config():
             config.update(yaml.safe_load(f.read()))
     return config
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-m", "--message", dest="message", action="store",)
+
+def get_issue_number(config) -> str|None:
+    if not config['issue']['file']:
+        logger.warning('No issue file configured')
+        return None
+    number = 1
+    if os.path.exists(config['issue']['file']):
+        with open(config['issue']['file'], 'r') as issue_file:
+            file_number = issue_file.readline()
+            if (file_number.isnumeric()):
+                number = int(file_number) + 1
+
+    with open(config['issue']['file'], 'w') as issue_file:
+        issue_file.write(str(number))
+    return str(number)
+
+
 if __name__ == "__main__":
-    logger.info('Starting publishing news')
+    args = parser.parse_args()
     config = load_config()
     logger.debug('Config loaded')
-    notionClient = NotionDbClient(config['notion'])
-    articlesList = notionClient.get_unpublished_articles(True)
-    logger.info('Got ' + str(len(articlesList)) + ' articles')
-    for article in articlesList:
-        logger.info(str(article))
+    issue_number = get_issue_number(config)
+    logger.info('Starting publishing news #' + issue_number)
+
+
+    notion_client = NotionDbClient(config['notion'])
+    articles_list = notion_client.get_unpublished_articles(True, False)
+    logger.info('Got ' + str(len(articles_list)) + ' articles')
+    # for article in articles_list:
+    #     logger.info(str(article))
+
+    parser = ArticleToMarkdownParser()
+    title = 'News and techies #' + issue_number
+    preface = args.message
+    markdown_string = parser.convert_to_markdown(articles_list=articles_list, title=title, preface=preface)
+    logger.debug('Markdown text:\n' + markdown_string)
     # confluenceClient = ConfluenceClient(config['confluence'])

@@ -1,8 +1,6 @@
 
 import logging
 
-from notion import Article
-
 """
     High priority: Markdown format has to work in Confluence and Teams chat.
     Markdown syntax: https://www.markdownguide.org/basic-syntax/
@@ -51,16 +49,17 @@ class _MarkdownFormatter:
         return '> '
 
 
-"""
-Not so sophisticated markdown content creator.
-Use methods to create content inside of creator and then use get_content to retrieve it
-Most methods just adds to the content but not every like #Link for example
-"""
+
 class MarkdownCreator:
-    _content = ''
-    _indent = ''
-    _indent_size = '  '
-    _formatter = None
+    """
+    Not so sophisticated markdown content creator.
+    Use methods to create content inside of creator and then use get_content to retrieve it
+    Most methods just adds to the content but not every like #Link for example
+    """
+    _content: str = ''
+    _indent: str = ''
+    _indent_size: str = '  '
+    _formatter: _MarkdownFormatter = None
 
     def __init__(self):
         self._formatter = _MarkdownFormatter()
@@ -68,15 +67,29 @@ class MarkdownCreator:
     def get_content(self):
         return self._content
 
+    def create_header(self, data, level):
+        self._content += self._formatter.do_header(data, level)
+        return self._content
+
     def push_list(self):
+        """
+        Increases list indentation by one
+        """
         self._indent += self._indent_size
         return self
 
     def pop_list(self):
-        self._indent -= self._indent_size
+        """
+        Reduces list indentation by one
+        """
+        self._indent = self._indent.removeprefix(self._indent_size)
         return self
 
     def end_list(self):
+        """
+        Resets indentation and separates next text with newlines
+        """
+        self._indent = ''
         self.end_paragraph()
         return self
 
@@ -85,25 +98,32 @@ class MarkdownCreator:
         return self
 
     def insert_line(self, data: str):
-        self._content = self._indent + data + self._formatter.line_break()
+        self._content += self._indent + data + self._formatter.line_break()
         return self
 
     def insert_list_item(self, data: str):
-        self._content = self._indent + self._formatter.unordered_list_item + data + self._formatter.line_break()
+        self._content += self._indent + self._formatter.unordered_list_item() + data + self._formatter.line_break()
         return self
 
     def insert_quote(self, data: str):
-        self._content = self._formatter.quote_string() + data + self._formatter.line_break()
+        self._content += self._formatter.quote() + data + self._formatter.line_break()
 
-    # Create a link text
-    # Does not addsitself to content
+
     def create_link(self, label: str, url: str) -> str:
-        return self._formatter.link(label, url)
+        """
+        Create a link text
+        Does not add itself to content
+        """
+        return self._formatter.do_link(label, url)
 
-    # Does not addsitself to content
     def bold(self, data) -> str:
-        return self._formatter.bold(data)
+        """
+        Does not add itself to content
+        """
+        return self._formatter.do_bold(data)
 
-    # Does not addsitself to content
     def italic(self, data) -> str:
-        return self._formatter.italic(data)
+        """
+        Does not add itself to content
+        """
+        return self._formatter.do_italics(data)

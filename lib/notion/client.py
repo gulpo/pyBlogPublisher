@@ -165,8 +165,8 @@ class Article:
         return result
 
     def __str__(self):
-        return "Article [id:{}, object:{}, name:{}, type:{}, source:{}, category:{}, tech_category:{},credit:{}, created_time:{}, last_edited_time:{}, published_time:{}]".format(
-            self.id, self.object, self.name, self.type, self.source, self.category, self.tech_category, self.credit,
+        return "Article [id:{}, object:{}, name:{}, type:{}, source:{}, category:{}, tech_category:{},credit:{}, summary:{}, created_time:{}, last_edited_time:{}, published_time:{}]".format(
+            self.id, self.object, self.name, self.type, self.source, self.category, self.tech_category, self.credit, self.summary,
             self.created_time, self.last_edited_time, self.published_time
         )
 
@@ -216,7 +216,7 @@ class NotionDbClient:
         else:
             raise requests.HTTPError(response.text)
 
-    def get_unpublished_articles(self, load_saved: bool = False):
+    def get_unpublished_articles(self, load_saved: bool = False, save_response: bool = False):
         self._logger.debug('Loading articles from Notion')
         if (load_saved):
             if (not os.path.isfile(self._notion_saved_file_path)):
@@ -224,7 +224,7 @@ class NotionDbClient:
             with open(self._notion_saved_file_path) as f:
                 json_data = json.load(f)
         else:
-            json_data = self._request_api(_query_unpublished_pages, False)
+            json_data = self._request_api(_query_unpublished_pages, save_response)
 
         article_list = []
         for page in json_data['results']:
