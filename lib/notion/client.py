@@ -2,6 +2,7 @@ import requests
 import json
 import logging
 import os
+from datetime import datetime
 
 NOTION_PROPERTY_TYPE_RICH_TEXT = 'rich_text'
 NOTION_PROPERTY_TYPE_SELECT = 'select'
@@ -29,19 +30,19 @@ _query_unpublished_pages = ('query_unpublished_pages', {
 })
 
 class Article:
-
+    """
+    Article instance represents a Page object in Notion
+    """
     _logger = logging.getLogger(__name__ + '.Article')
 
-    id: str
-    category: str
-    id: str
-    object: str
+    id: str         # object id
+    object: str     # type of notion object page|database
     name: str
     link: str
     summary: str
-    category: str
     type: str
     source: str
+    category: str
     tech_category: list[str]
     credit: str
     created_time: str
@@ -176,14 +177,16 @@ class NotionDbClient:
 
     _secret = None
     _database_id = None
-    _url = None
+    _url_api_database = None
     _headers = None
     _notion_saved_file_path = 'notion_saved_data.json'
 
     def __init__(self, config):
         self._secret = config['auth']['iat']
         self._database_id = config['database']['id']
-        self._url = "https://api.notion.com/v1/databases/" + self._database_id + "/query"
+        self._url_api = 'https://api.notion.com/v1'
+        self._url_api_database = "{}/databases".format(self._url_api)
+        self._url_api_page = '{}/pages'.format(self._url_api)
         self._headers = {
             "accept": "application/json",
             "Notion-Version": "2022-06-28",
@@ -191,13 +194,36 @@ class NotionDbClient:
             "Authorization":  "Bearer " + self._secret
         }
 
-    """
-    query: tuple - [0 - name, 1 - query json dict]
-    do_save: boolean, default False
-    """
-    def _request_api(self, query: tuple, do_save = False):
-        self._logger.debug('Querying notion database [url:{}, query:{}]'.format(self._url, query[0]))
-        response = requests.post(self._url, json = query[1], headers = self._headers)
+    def _request_database(self, method: str, query: tuple, do_save: bool = False) -> list:
+        """
+        Assumes requesting only hardcoded database
+        """
+        database_query_url = self._url_api_database + '/{}/query'.format(self._database_id)
+        return self._request_api(
+            method=method,
+            url=database_query_url,
+            query=query,
+            do_save=do_save)
+
+    def _request_page(self, page_id: str, method: str, query: tuple, do_save: bool = False) -> list:
+        page_url = self._url_api_page + '/' + page_id
+        return self._request_api(
+            method=method,
+            url=page_url,
+            query=query,
+            do_save=do_save)
+
+    def _request_api(self, method: str, url: str, query: tuple, do_save: bool = False) -> list:
+        """
+        method: str get|post|patch|delete
+        query: tuple - [0 - name, 1 - query json dict]
+        do_save: boolean
+
+        Make more generic with method of choice
+        Returns json response parsed by json module
+        """
+        self._logger.debug('Querying notion database [url:{}, query:{}]'.format(url, query[0]))
+        response = requests.request(method = method, url = url, json = query[1], headers = self._headers)
         if (response.status_code == 200):
             json_response = response.text
             if (do_save):
@@ -224,7 +250,7 @@ class NotionDbClient:
             with open(self._notion_saved_file_path) as f:
                 json_data = json.load(f)
         else:
-            json_data = self._request_api(_query_unpublished_pages, save_response)
+            json_data = self._request_database(method='post', query=_query_unpublished_pages, do_save=save_response)
 
         article_list = []
         for page in json_data['results']:
@@ -232,4 +258,35 @@ class NotionDbClient:
         self._logger.debug('Articles loaded')
         return article_list
 
+    def publish_articles(self, article_list: list[Article]):
+        """
+        Published article is a article with set "Published time" property
+        """
+        if (len(article_list) == 0):
+            self._logger.debug('No articles to publish')
+            return
+        self._logger.info('Publishing articles #{}'.format(len(article_list)))
+
+        publishing_date = datetime.today()
+        publish_json = {
+            "properties" : {
+                "Published time": {
+                    "id": "n%3Cw%5D",
+                    "type": "date",
+                    "date": {
+                        "start": publishing_date.strftime('%Y-%m-%dT%H:%M:%S') + '+0100' # tz cause f python timezones
+                    }
+                }
+            }
+        }
+
+        for article in article_list:
+            update_result = self._request_page(
+                page_id=article.id,
+                method='patch',
+                query=('update_page', publish_json),
+                do_save=False)
+            self._logger.info(update_result)
+
+    # TODO update articles with published date
 

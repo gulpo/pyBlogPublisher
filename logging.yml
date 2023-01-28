@@ -14,7 +14,7 @@ handlers:
     stream: ext://sys.stdout
   # file:
   #   class: logging.handlers.RotatingFileHandler
-  #   level: DEBUG 
+  #   level: DEBUG
   #   formatter: default
   #   filename: publisher.log
   #   maxBytes: 1048576 # KB
@@ -23,7 +23,7 @@ loggers:
   # fileLogger:
   #   level: DEBUG
   #   handlers: [file]
-  notion:
+  lib:
     level: DEBUG
     # handlers: [console, file]
 root:

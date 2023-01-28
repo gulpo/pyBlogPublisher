@@ -21,7 +21,7 @@ import argparse
 
 from lib.notion import NotionDbClient
 from lib.confluence import ConfluenceClient
-from lib.service import ArticleToMarkdownParser
+from lib.service import ArticleToMarkdownConverter
 
 with open('logging.yml', 'r') as f:
     config = yaml.safe_load(f.read())
@@ -66,14 +66,19 @@ if __name__ == "__main__":
 
 
     notion_client = NotionDbClient(config['notion'])
-    articles_list = notion_client.get_unpublished_articles(True, False)
+    articles_list = notion_client.get_unpublished_articles(load_saved=True, save_response=True)
     logger.info('Got ' + str(len(articles_list)) + ' articles')
     # for article in articles_list:
     #     logger.info(str(article))
 
-    parser = ArticleToMarkdownParser()
+    parser = ArticleToMarkdownConverter()
     title = 'News and techies #' + issue_number
     preface = args.message
-    markdown_string = parser.convert_to_markdown(articles_list=articles_list, title=title, preface=preface)
+    # works surprisingly well
     logger.debug('Markdown text:\n' + markdown_string)
-    # confluenceClient = ConfluenceClient(config['confluence'])
+
+    confluence_client = ConfluenceClient(config['confluence'])
+    confluence_client.create_blogspot(content=markdown_string, title=title)
+
+    # works good
+    #notion_client.publish_articles(article_list=articles_list)

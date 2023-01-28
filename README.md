@@ -45,7 +45,9 @@ Required items from Notion:
 ## TODO
 
 - \[/] read Notion credentials from env variables
-- \[o] format notion articles into markdown format
-- \[ ] Confluence integration
-- \[ ] Teams/RocketChat integration
+- \[/] format notion articles into markdown format
+- \[o] Confluence integration
+- \[o] format notion articles into html format for confluence // no markdown plugin for confluence
+- \[o] Teams/RocketChat integration
+- \[/] update Notion articles with "published date"
 - \[ ] Mail integration? Like mail to d.ozog to communicate new issue to wider audience?

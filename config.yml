@@ -5,6 +5,8 @@ confluence:
       url: /content
   auth:
     pat: <personal_access_token>
+  blog:
+    space: <space_key>
 notion:
   auth:
     iat: <integration_access_token> # integration access token

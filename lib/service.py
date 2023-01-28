@@ -15,7 +15,7 @@ class ArticleToMarkdownConverter:
     ]
 
     def __init__(self):
-        self._logger = logging.getLogger(__name__ + '.ArticleService')
+        self._logger = logging.getLogger(__name__ + '.ArticleToMarkdownConverter')
         self._markdown = MarkdownCreator()
 
     def reset(self):
@@ -51,12 +51,12 @@ class ArticleToMarkdownConverter:
                 self._markdown.insert_line(line)
 
     def _add_markdown_chapter(self, category: str, articles_list: list[Article]) -> None:
-        self._markdown.create_header("[[ %s ]]" % category, 2)
+        self._markdown.create_header("\[\[ %s ]]" % category, 2)
         self._markdown.push_list()
         for article in articles_list:
             link = self._markdown.create_link(article.name, article.link)
             self._markdown.insert_list_item(link)
-            self._markdown.insert_line('[{}] Source: {}'.format(article.type, article.source) + (' Credits to:%s' % article.credit if article.credit else ''))
+            self._markdown.insert_line('\[{}] Source: {}'.format(article.type, article.source) + ('; Credits:%s' % article.credit if article.credit else ''))
             if article.type == 'Meeting' and article.summary:
                 for line in article.summary.split('\\n'):
                     self._markdown.insert_line(line)

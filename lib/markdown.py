@@ -48,8 +48,6 @@ class _MarkdownFormatter:
     def quote(self) -> str:
         return '> '
 
-
-
 class MarkdownCreator:
     """
     Not so sophisticated markdown content creator.
@@ -69,7 +67,7 @@ class MarkdownCreator:
 
     def create_header(self, data, level):
         self._content += self._formatter.do_header(data, level)
-        return self._content
+        return self
 
     def push_list(self):
         """
