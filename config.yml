@@ -1,6 +1,7 @@
 confluence:
+  url: https://confluence.hycom.pl
   api:
-    url: https://confluence.hycom.pl/rest/api
+    url: /rest/api
     content:
       url: /content
   auth:

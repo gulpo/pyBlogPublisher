@@ -15,13 +15,13 @@
 # Confluence
 import yaml
 import logging, logging.config
-import datetime
 import os
 import argparse
 
 from lib.notion import NotionDbClient
-from lib.confluence import ConfluenceClient
 from lib.service import ArticleToMarkdownConverter
+from lib.service import ArticleToHtmlConverter
+from atlassian import Confluence
 
 with open('logging.yml', 'r') as f:
     config = yaml.safe_load(f.read())
@@ -39,7 +39,10 @@ def load_config():
     return config
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-m", "--message", dest="message", action="store",)
+parser.add_argument("-m", "--message", dest="message", action="store", help='Set issue preface')
+parser.add_argument("-c", "--confluence", dest="confluence", action="store_true", help='Publish to confluence')
+parser.add_argument("-t", "--msteams", dest="msteams", action="store_true", help='publish to Ms Teams')
+parser.add_argument("-u", "--update", dest="update", action="store_true", help='Update Notion database articles with published date')
 
 def get_issue_number(config) -> str|None:
     if not config['issue']['file']:
@@ -64,21 +67,35 @@ if __name__ == "__main__":
     issue_number = get_issue_number(config)
     logger.info('Starting publishing news #' + issue_number)
 
-
     notion_client = NotionDbClient(config['notion'])
     articles_list = notion_client.get_unpublished_articles(load_saved=True, save_response=True)
     logger.info('Got ' + str(len(articles_list)) + ' articles')
-    # for article in articles_list:
-    #     logger.info(str(article))
 
-    parser = ArticleToMarkdownConverter()
     title = 'News and techies #' + issue_number
     preface = args.message
+
     # works surprisingly well
-    logger.debug('Markdown text:\n' + markdown_string)
+    article2markdown_converter = ArticleToMarkdownConverter()
+    markdown_string = article2markdown_converter.convert(articles_list=articles_list, title=title, preface=preface)
+    logger.debug('Markdown content:\n##################################\n{}\n##################################\n'.format(repr(markdown_string)))
 
-    confluence_client = ConfluenceClient(config['confluence'])
-    confluence_client.create_blogspot(content=markdown_string, title=title)
+    article2html_converter = ArticleToHtmlConverter()
+    html_string = article2html_converter.convert(articles_list=articles_list, title=title, preface=preface)
+    logger.debug('HTML content:\n##################################\n{}\n##################################\n'.format(repr(html_string)))
 
-    # works good
-    #notion_client.publish_articles(article_list=articles_list)
+    if args.confluence:
+        logger.info('Publishing to Confluence')
+        confluence = Confluence(url=config['confluence']['url'], token=config['confluence']['auth']['pat'])
+        response = confluence.create_page(space=config['confluence']['blog']['space'], title=title, body=html_string, type='blogpost', representation='storage')
+        if type(response) is dict:
+            logger.info (repr(response))
+        else:
+            logger.info ('Communication with Confluence somewhat failed and response isnt a json.\nResponse:' + repr(response))
+    if args.msteams:
+        logger.info('Publishing to MsTeams')
+        # do msteams
+    if args.update:
+        logger.info('Mark articles as published')
+        # works good
+        # notion_client.publish_articles(article_list=articles_list)
+

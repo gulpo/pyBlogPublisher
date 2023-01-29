@@ -1,6 +1,7 @@
 import logging
 
 from .markdown import MarkdownCreator
+from .html import HtmlCreator
 from .notion import Article
 
 class ArticleToMarkdownConverter:
@@ -21,7 +22,7 @@ class ArticleToMarkdownConverter:
     def reset(self):
         self._markdown = MarkdownCreator()
 
-    def convert_to_markdown(self, articles_list: list[Article], title: str = None, preface: str = None) -> str:
+    def convert(self, articles_list: list[Article], title: str = None, preface: str = None) -> str:
         if (not articles_list):
             raise ValueError('Articles list is not of expected type')
         self._logger.info('Creating converting articles to markdown with title: {} and preface: {}'.format(title, preface))
@@ -62,8 +63,68 @@ class ArticleToMarkdownConverter:
                     self._markdown.insert_line(line)
         self._markdown.pop_list()
 
+class ArticleToHtmlConverter:
 
+    _html = None
+    _article_categories = [
+        'DEV', 'OPS', 'DB', 'SEC', 'TOOLS', 'SOFT', 'TRIVIA'
+    ]
 
+    def __init__(self):
+        self._logger = logging.getLogger(__name__ + '.ArticleToHtmlConverter')
+        self._html = HtmlCreator()
 
+    def convert(self, articles_list: list[Article], title: str = None, preface: str = None) -> str:
+        if (not articles_list):
+            raise ValueError('Articles list is not of expected type')
+        self._logger.info('Creating converting articles to markdown with title: {} and preface: {}'.format(title, preface))
+        articles_map = self._map_articles_by_category(articles_list)
+        self._logger.info("Used categories: " + str(articles_map.keys()))
 
+        self._html.push_paragraph()
+        self._add_toc(self._html)
+        self._add_title_and_preface(title, preface)
+        for category in self._article_categories:
+            if (category in articles_map):
+                self._add_chapter(category, articles_map[category])
+        self._html.pop_paragraph()
+        return self._html.get_content()
 
+    def _map_articles_by_category(self, articles_list: list[Article]) -> dict[str, list[Article]]:
+        articles_categories_dict = {}
+        for article in articles_list:
+            category = article.category.upper()
+            if (category not in articles_categories_dict):
+                articles_categories_dict[category] = []
+            articles_categories_dict[category].append(article)
+        return articles_categories_dict
+
+    def _add_title_and_preface(self, title: str, preface: str) -> None:
+        if (title):
+            self._html.insert(self._html.h1(title))
+        if (preface):
+            self._html.push_paragraph()
+            preface.replace('\\n', self._html.br())
+            self._html.insert(preface)
+            self._html.pop_paragraph()
+
+    def _add_chapter(self, category: str, articles_list: list[Article]) -> None:
+        self._html.insert(self._html.h2("[[ %s ]]" % category))
+        self._html.push_list()
+        for article in articles_list:
+            self._html.push_list_item()
+            article_row = self._html.div(self._html.a(article.name, article.link))
+            article_row += self._html.div('[{}] Source: {}'.format(article.type, article.source) + ('; Credits:%s' % article.credit if article.credit else ''))
+            if article.type == 'Meeting' and article.summary:
+                article_row += self._html.div(article.summary.replace('\\n', self._html.br()))
+            self._html.insert(article_row)
+            self._html.pop_list_item()
+        self._html.pop_list()
+
+    def _add_toc(self, html: HtmlCreator):
+        html.insert("""
+<div class="toc-macro client-side-toc-macro conf-macro output-block"
+    data-headerelements="H1,H2,H3,H4,H5,H6,H7\"
+    data-hasbody="false"
+    data-macro-name="toc"></div>
+        """)
