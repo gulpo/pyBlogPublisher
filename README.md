@@ -16,10 +16,12 @@ Most probably this publisher will be strictly tailored for my Notion database so
 
 ### Communication with Notion
 
-Through Notion API. Python libraries are either too complex for simple case as this.
+Through Notion API. Python libraries are either too complex for simple case as this.  
+[Notion api reference](https://developers.notion.com/reference/intro)
 
 ### Communication with Confluence
 
+[Confluence api reference](https://developer.atlassian.com/server/confluence/confluence-rest-api-examples/#create-a-new-page)  
 Use [atlassian-python-api](https://atlassian-python-api.readthedocs.io/index.html)
 > pip install atlassian-python-api
 
@@ -48,7 +50,21 @@ Required items from Notion:
 
 ### app
 
-create _config.local.yml_ and fill in needed parts
+create _config.local.yml_ and fill in needed parts which is:
+- notion database id
+- notion integration secret
+- confluence personal access token
+- confluence blog space
+
+## Run
+
+After proper setup app should be easy to use. Run the app with following command
+> python3 newsPublisher.py \[options]
+Cli options are:
+- -m, --message "<message>" 
+- -c, --confluence - publish articles to confluence
+- -t, --msteams - publish articles to microsoft teams
+- -u, --update - update notion database articles with published date
 
 ## TODO
 
