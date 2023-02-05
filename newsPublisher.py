@@ -87,20 +87,20 @@ def get_html_content(articles_list: list, title: str, preface: str):
     logger.debug('HTML content:\n##################################\n{}\n##################################\n'.format(repr(content_html)))
     return content_html
 
-def publish_confluence(config, title, html_string):
+def publish_confluence(config, title, content):
     logger.info('Publishing to Confluence')
     confluence = Confluence(url=config['confluence']['url'], token=config['confluence']['auth']['token'])
-    response = confluence.create_page(space=config['confluence']['blog']['space'], title=title, body=html_string, type='blogpost', representation='storage')
+    response = confluence.create_page(space=config['confluence']['blog']['space'], title=title, body=content, type='blogpost', representation='storage')
     if type(response) is dict:
         logger.info ('Confluence published article: id:' + response["id"])
     else:
         logger.error ('Communication with Confluence somewhat failed and response isnt a json.\nResponse:' + repr(response))
 
 
-def publish_medium(config, title, content_html):
+def publish_medium(config, title, content):
     logger.info('Publishing to medium')
     medium = MediumBlog(config=config['medium'])
-    response = medium.post(title=title, content=content_html)
+    response = medium.post(title=title, content=content)
     logger.debug('Medium response[http_code:{}]:\n{}'.format(response.status_code, response.text))
     if (response.status_code >= 200 or response.status_code < 300):
         logger.info('Mediums publish is successful')
@@ -126,7 +126,7 @@ if __name__ == "__main__":
         logger.info('Publishing to MsTeams')
         # do msteams stuff
     if args.medium:
-        publish_medium(config, title, content_html)
+        publish_medium(config, title, content_md)
     if args.update:
         logger.info('Mark articles as published')
         # works good
