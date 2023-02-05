@@ -5,13 +5,20 @@ confluence:
     content:
       url: /content
   auth:
-    pat: <personal_access_token>
+    token: <personal_access_token>
   blog:
     space: <space_key>
+medium:
+  api:
+    userid: <user_id>
+    url: https://api.medium.com/v1/users/{}/posts
+  auth:
+    token: <access_token>
 notion:
   auth:
-    iat: <integration_access_token> # integration access token
+    token: <integration_access_token>
   database:
     id: <database_id>
 issue:
-  file: issue.txt
+  number:
+    file: issue.txt

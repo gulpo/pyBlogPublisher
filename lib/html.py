@@ -65,7 +65,7 @@ class HtmlCreator:
         return '<span>{}</span>'.format(html.escape(data))
 
     def a(self, label: str, url: str) -> str:
-        return '<a src="{}">{}</a>'.format(url, html.escape(label))
+        return '<a href="{}">{}</a>'.format(html.escape(url), html.escape(label))
 
     def b(self, data: str) -> str:
         return '<strong>{}</strong>'.format(html.escape(data))

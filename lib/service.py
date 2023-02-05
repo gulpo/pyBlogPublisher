@@ -33,6 +33,8 @@ class ArticleToMarkdownConverter:
         for category in self._article_categories:
             if (category in articles_map):
                 self._add_markdown_chapter(category, articles_map[category])
+
+
         return self._markdown.get_content()
 
     def _map_articles_by_category(self, articles_list: list[Article]) -> dict[str, list[Article]]:
@@ -64,7 +66,12 @@ class ArticleToMarkdownConverter:
         self._markdown.pop_list()
 
 class ArticleToHtmlConverter:
-
+    """
+    Converts articles objects to html string using authored tool
+    Should I use existing libs? Definetely.
+    Why I chose not to? Becase that's a "simple" thing to do what I want.. and I'm dumb
+    By any chance you'll need to modify this change implementation to actualy be using xml.dom or any other python lib
+    """
     _html = None
     _article_categories = [
         'DEV', 'OPS', 'DB', 'SEC', 'TOOLS', 'SOFT', 'TRIVIA'
@@ -100,12 +107,12 @@ class ArticleToHtmlConverter:
         return articles_categories_dict
 
     def _add_title_and_preface(self, title: str, preface: str) -> None:
-        if (title):
+        if title:
             self._html.insert(self._html.h1(title))
-        if (preface):
+        if preface:
             self._html.push_paragraph()
-            preface.replace('\\n', self._html.br())
-            self._html.insert(preface)
+            for line in preface.split('\n'):
+                self._html.insert(self._html.text(line) + self._html.br())
             self._html.pop_paragraph()
 
     def _add_chapter(self, category: str, articles_list: list[Article]) -> None:

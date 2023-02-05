@@ -182,7 +182,7 @@ class NotionDbClient:
     _notion_saved_file_path = 'notion_saved_data.json'
 
     def __init__(self, config):
-        self._secret = config['auth']['iat']
+        self._secret = config['auth']['token']
         self._database_id = config['database']['id']
         self._url_api = 'https://api.notion.com/v1'
         self._url_api_database = "{}/databases".format(self._url_api)
