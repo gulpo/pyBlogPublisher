@@ -74,4 +74,4 @@ Cli options are:
 - \[/] format notion articles into html format for confluence // no markdown plugin for confluence
 - \[ ] Teams/RocketChat integration
 - \[/] update Notion articles with "published date"
-- \[ ] Mail integration? Like mail to d.ozog to communicate new issue to wider audience?
+- \[ ] Mail integration? Like mail to communicate new issue to wider audience?
