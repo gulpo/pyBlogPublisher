@@ -1,5 +1,5 @@
 confluence:
-  url: https://confluence.hycom.pl
+  url: https://<confluence_address>
   api:
     url: /rest/api
     content:
