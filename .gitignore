@@ -3,4 +3,6 @@ notion_saved*
 __pycache__
 .vscode
 *local*yml
+*prod*yml
+*.prod
 issue.txt

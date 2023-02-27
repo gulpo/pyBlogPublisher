@@ -71,7 +71,7 @@ def get_issue_number(config: dict, args: dict) -> str|None:
 
 def get_content_articles(config: dict):
     notion_client = NotionDbClient(config['notion'])
-    articles_list = notion_client.get_unpublished_articles(load_saved=True, save_response=True)
+    articles_list = notion_client.get_unpublished_articles(load_saved=False, save_response=True)
     logger.info('Got ' + str(len(articles_list)) + ' articles')
     return articles_list
 
@@ -130,5 +130,6 @@ if __name__ == "__main__":
     if args.update:
         logger.info('Mark articles as published')
         # works good
-        # notion_client.publish_articles(article_list=articles_list)
+        notion_client = NotionDbClient(config['notion'])
+        notion_client.publish_articles(article_list=articles_list)
 

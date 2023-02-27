@@ -50,7 +50,7 @@ class ArticleToMarkdownConverter:
         if (title):
             self._markdown.create_header(title, 1)
         if (preface):
-            for line in preface.split('\\n'):
+            for line in preface.split('\n'):
                 self._markdown.insert_line(line)
 
     def _add_markdown_chapter(self, category: str, articles_list: list[Article]) -> None:
