@@ -60,7 +60,7 @@ def get_issue_number(config: dict, args: dict) -> str|None:
             if (file_number.isnumeric()):
                 number = int(file_number) + 1
 
-    do_publish = args.confluence or args.medium or args.msteams
+    do_publish = args.update or False
     if (do_publish):
         with open(issue_number_file, 'w') as issue_file:
             issue_file.write(str(number))
@@ -127,7 +127,7 @@ if __name__ == "__main__":
         # do msteams stuff
     if args.medium:
         publish_medium(config, title, content_md)
-    if args.update:
+    if args.update and len(articles_list) > 0 and (args.confluence or args.medium):
         logger.info('Mark articles as published')
         # works good
         notion_client = NotionDbClient(config['notion'])

@@ -122,6 +122,7 @@ class Article:
             return None
         result = []
         for rich_text in json['rich_text']: # and hope nothing else will pop up
+            # Take newline characters into account
             result.append(rich_text['plain_text'])
         return " ".join(result)
 
